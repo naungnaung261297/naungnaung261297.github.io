@@ -2,71 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <!-- css file -->
-    <link rel="stylesheet" href="register.css">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Lesson Form</title>
+    <link rel="stylesheet" href="lesson.css">
 </head>
 <body>
-    <h1>Register Form</h1>
+    <h1>Lesson Form</h1>
     <form action="#" method="get" id="myForm">
         <div>
-            <label for="name">Name</label> <br>
-            <input type="text" id="name" name="name">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" readonly value="Naung Naung">
         </div>
         <br>
 
         <div>
-            <label for="email">Email</label> <br>
+            <label for="email">Email:</label><br>
             <input type="email" id="email" name="email">
         </div>
         <br>
 
         <div>
-            <label for="phone">Phone</label> <br>
-            <input type="number" id="phone" name="phone">
-        </div>
-        <br>
+            <label for="phone">Phone</label><br>
+            <input type="number" name="phone" id="phone">
+        </div><br>
 
         <div>
-            <label for="Gender">Gender</label> <br>
+            <label for="Gender">Gender</label><br>
 
-            <input type="radio" id="male" name="gender" value="male">
+            <input type="radio" name="Gender" id="male" value="male">
             <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
+
+            <input type="radio" name="Gender" id="female" value="female">
             <label for="female">Female</label>
-            <input type="radio" id="other" name="gender" value="other">
+
+            <input type="radio" name="Gender" id="other" value="other">
             <label for="other">Other</label>
         </div>
         <br>
 
-        <div>
-            <label for="hobby">Hobbies</label> <br>
+        <div id="hobby">
+            <label for="hobby">Hobbies</label><br>
 
-            <div>
-                <input type="checkbox" id="reading" name="hobby" value="reading">
-                <label for="reading">Reading</label>
-            </div>
-            <div>
-                <input type="checkbox" id="sport" name="hobby" value="sport">
-                <label for="sport">Sport</label>
-            </div>
-            <div>
-                <input type="checkbox" id="music" name="hobby" value="music">
-                <label for="music">Music</label>
-            </div>
-            <div>
-                <input type="checkbox" id="movie" name="hobby" value="movie">
-                <label for="movie">Movie</label>
-            </div>
-            <div>
-                <input type="checkbox" id="game" name="hobby" value="game">
-                <label for="game">Game</label>
-            </div>
-        </div>
-        <br>
+            <input type="checkbox" name="hobby" id="reading" value="reading">
+            <label for="reading">Reading</label><br>
 
+            <input type="checkbox" name="hobby" id="football" value="football" disabled>
+            <label for="football">Football</label><br>
+
+            <input type="checkbox" name="hobby" id="basketball" value="basketball">
+            <label for="basketball">Basketball</label><br>
+
+            <input type="checkbox" name="hobby" id="tennis" value="tennis">
+            <label for="tennis">Tennis</label>
+
+        </div><br><br>
 
         <fieldset>
             <legend>Rules</legend>
@@ -76,21 +65,20 @@
                 <li>This is the second rule</li>
                 <li>This is the third rule</li>
                 <li>This is the fourth rule</li>
-                <li>This is the fifth rule</li>
+                <li>This is the fifth rule </li>
                 <li>This is the sixth rule</li>
                 <li>This is the seventh rule</li>
             </ul>
-
         </fieldset>
 
-
         <p></p>
-        <p>Thank you for registering</p>
+        <p>Thank you for registering. </p>
         <p></p>
-
-
-
-        <button type="submit">Submit</button>
+        
+            <button type="submit" class="register_btn">Submit</button>
     </form>
+
+    <br><br><br>
+
 </body>
 </html>

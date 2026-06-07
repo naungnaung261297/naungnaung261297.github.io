@@ -51,3 +51,8 @@ p:empty{
     background-color: blue;
     color: aliceblue;
 }
+
+.register_btn:hover{
+    background-color: rgb(63, 0, 251);
+    color: aliceblue;
+}
