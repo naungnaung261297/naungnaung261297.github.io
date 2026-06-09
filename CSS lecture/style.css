@@ -2,6 +2,8 @@
 
 * {
     color: rgb(13, 12, 12);
+    margin: 0;
+    padding: 0;
 }
  /* tag selector/ element selector */
 h1{
@@ -67,4 +69,77 @@ a:visited {
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 5px;
+}
+
+/* bordrer */
+
+.borderOne{
+    border: 5px double rgb(5, 189, 33);
+}
+
+/* size style color */
+
+
+.borderTwo{
+    border-bottom: 5px solid rgb(254, 1, 1)
+    /* border-bottom: 10px; */
+    /* border-left: 5px solid rgb(254, 1, 1); */
+    /* border-right: 5px solid rgb(254, 1, 1); */
+}
+
+/* border width */
+.borderThree{
+    border-style: solid;
+    /* border-width: 10px; */
+    /* T / R / B / L */
+    /* border-width: 5px 50px; */
+    /* T&B / L&R */
+    /* border-width: 5px 10px 50px; */
+    /* T / L&R */
+    border-width: 5px 10px 15px 20px;
+    /* T / R / B / L */
+}
+    
+/* border style */
+.borderFour{
+    /* border-style: solid; */
+    /* border-style: dotted solid; */
+    /* border-style: dotted dashed solid; */
+    border-style: dotted dashed solid double;
+    border-width: 5px;
+    border-color: green yellow red blue;
+}
+
+/* margin lesson */
+.marginOne{
+    /* margin: 10px; */
+    border: 2px solid rgb(235, 7, 7);
+    /* margin: 50px 0px 0px 0px; */
+    margin-top: 50px;
+}
+
+
+
+/* padding */
+
+.paddingOne{
+    border: 2px solid rgb(235, 7, 7);
+    /* padding: 50px ; */
+
+    padding-left: 50px;
+
+}
+
+/* inline layout */
+
+.inline{
+    border: 2px solid rgb(235, 7, 7);
+    width: 300px;
+    display: inline-block;
+}
+
+.block{
+    border: 2px solid rgb(0, 253, 93);
+    width: 300px;
+    display: inline-block;
 }
