@@ -143,3 +143,153 @@ a:visited {
     width: 300px;
     display: inline-block;
 }
+
+
+
+
+/* float */
+.float_right_img{
+    width: 50%;
+    height: 700px;
+    float: right;
+    /* float: inline-end; */
+    /* float: inline-start; */
+    /* float: left; */
+    /* float: initial; */
+}
+
+.clear{
+    clear: both;
+}
+
+.float_left_img{
+    width: 50%;
+    height: 700px;
+    float: left;
+    /* float: inline-end; */
+    /* float: inline-start; */
+    /* float: left; */
+    /* float: initial; */
+}
+
+/* flex */
+.flex{
+    display: flex;
+    flex-direction: row;
+    /* flex-direction: column; */
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column-reverse; */
+    /* justify-content: space-between; */
+    align-items: center;
+    /* top and button */
+    justify-content: center;
+    height: 100px;
+    background-color: red;
+}
+
+/* grid */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: max-content; */
+    /* grid-template-columns: auto auto auto; */
+    /* grid-row-gap: 40px;
+    grid-column-gap: 30px; */
+    /* grid-gap: 30px; */
+
+}
+
+.grid_child{
+    padding: 20px;
+    text-align: center;
+    color: aliceblue;
+}
+
+.grid_child, .grid div{
+    padding: 20px;
+    text-align: center;
+    color: aliceblue;
+}
+
+.row_add{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.column_add{
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+/* .media{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+} */
+
+.media img{
+    width: 100%;
+}
+
+
+/* @media screen and (max-width: 1024px){
+    .media{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px){
+    .media{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px){
+    .media{
+        grid-template-columns: repeat(1, 1fr);
+    }
+} */
+
+/* mobile frist */
+
+.media{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+}
+
+@media screen and (min-width: 600px){
+    .media{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px){
+    .media{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .media{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+.position_relative{
+    border: 2px solid red;
+    width: 1000px;
+    height: 500px;
+}
+
+.position_relative_child{
+    border: 2px solid green;
+    width: 500px;
+    height: 200px;
+    position: relative;
+    /* top bottom left right */
+    top: 5px;
+    left: 50px;
+}
