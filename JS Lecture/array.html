@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+
+    <h1>Array</h1>
+
+    <script>
+        // array
+
+        let studentList = ['Naung Naung', 'Aung Aung', 'Hla Hla'];
+        console.log(studentList);
+        console.log(studentList.length);
+        console.log(studentList[2]);
+        console.log(studentList[0]);
+
+        // array.push () အသစ် ထပ်တိုးခြင်း
+
+        studentList.push('Tun Tun', 'Mg Mg');
+        console.log(studentList);
+
+        // array.pop နောက်ဆုံးတစ်ခန်းကို ဖျက်ခြင်း
+
+        studentList.pop();
+        console.log(studentList);
+
+        // array.unshift () ရှေ့ဆုံးခန်းမှစ၍ အသစ်ထည့်ခြင်း
+
+        studentList.unshift('Mg Mg');
+        console.log(studentList);
+
+        // array.shift () ရှေ့ဆုံးခန်းအား ဖျက်ခြင်း
+
+        studentList.shift();
+        console.log(studentList);
+
+        // array.sort () a to z sorting လုပ်ခြင်း 
+
+        studentList.sort();
+        console.log(studentList);
+
+        let studentList2 = ['Kyaw Kyaw', 'Kyaw Thu', 'Aung Aung', 'Hla Hla', 'Aung Htet'];
+
+        // array.reverse ပြောင်းပြန် sorting စီခြင်း
+
+        studentList2.reverse();
+        console.log(studentList2);
+
+        // array.sort().reverse() Z to A sorting စီခြင်း
+
+        studentList2.sort().reverse();
+        console.log(studentList2);
+
+        // array.toString() array ကို String data ပြောင်းခြင်း
+
+        console.log(studentList2.toString());
+
+        let studentList3 = 'Naung Naung, Aung Aung, Hla Hla'
+
+        // .split သည် String ကို array သို့ ပြောင်းခြင်း
+
+        studentListArray = studentList3.split(',');
+        console.log(studentListArray);
+
+        let array1 = [1,2,3,4];
+        let array2 = [5,6,7,8];
+        let array3 = [9,10,11.12]
+
+        // array.concat() Array ခန်းများ ပေါင်းခြင်း
+
+        let result = array1.concat(array2,array3);
+        console.log(result);
+
+        // [... ] အသုံးပြု၍ array ခန်းများ ပေါင်းခြင်း
+
+        let result2 = [...array1, ...array2, ...array3];
+        console.log(result2);
+
+    </script>
+    
+</body>
+</html>

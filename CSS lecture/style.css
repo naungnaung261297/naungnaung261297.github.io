@@ -258,32 +258,26 @@ a:visited {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 20px;
 }
-
 @media screen and (min-width: 600px){
     .media{
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
 @media screen and (min-width: 768px){
     .media{
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
 @media screen and (min-width: 1024px){
     .media{
         grid-template-columns: repeat(4, 1fr);
     }
 }
-
-
 .position_relative{
     border: 2px solid red;
     width: 1000px;
     height: 500px;
 }
-
 .position_relative_child{
     border: 2px solid green;
     width: 500px;
@@ -293,3 +287,44 @@ a:visited {
     top: 5px;
     left: 50px;
 }
+.position_absolute{
+    border: 2px solid brown;
+    width: 1000px;
+    height: 500px;
+    position: relative;
+}
+.position_absolute_child{
+    border: 2px solid yellow;
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    /* left: 50px; */
+}
+.fixed{
+    position: fixed;
+    top: 50px;
+    right: 50px;
+}
+
+/* online font */
+.online_font{
+  font-family: "Playwrite GB J", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+}
+
+/* offline font */
+@font-face {
+    font-family: "a";
+    src: url(Dancing_Script/static/DancingScript-Bold.ttf)
+}
+
+.offline_font{
+    font-family: a;
+    font-size: 50px;
+}
+

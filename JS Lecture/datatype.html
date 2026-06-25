@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datatype</title>
+</head>
+<body>
+    <h1>Data Type</h1>
+
+    <script>
+        
+        // string data type (" ") (' ') (` `) (၃)မျိုး
+        // let name = "Naung Naung";
+        // let name = 'Naung Naung';
+        let name = `Naung Naung`;
+        console.log(name);
+        console.log(typeof(name));
+
+
+        // numberic data type (နံပါတ်ဂဏန်းသက်သက်)
+        // let age = 29;
+        let age = 29.93;
+        console.log(age);
+        console.log(typeof(age));
+
+        // boolean data type (true {1} or false {0})
+        let isStudent = true;
+        console.log(isStudent);
+        console.log(typeof(isStudent))
+
+        // undefined data type (ဒေတာ assign မချရသေး)
+        let undefinedVariable;
+        console.log(undefinedVariable);
+        console.log(typeof(undefinedVariable));
+
+        // null data type
+        let nullVariable = null;
+        console.log(nullVariable);
+        console.log(typeof(nullVariable));
+
+        // array data type (index start from 0) new array and []
+        // let studentList = new Array('Mg Mg', 'Aung Aung', 'Hla Hla');
+        let studentList = ['Mg Mg', 'Aung Aung', 'Hla Hla']
+        console.log(studentList);
+        console.log(typeof(studentList));
+        console.log(studentList.length);
+        console.log(studentList[2]);
+        console.log(studentList[3]);
+
+        // object data type
+        let student = {
+            // key : value,
+            name : "Naung Naung",
+            age : 29,
+            address : "Naypyitaw",
+            education : "BA(Myanmar)",
+        }
+
+        console.log(student);
+        console.log(typeof(student));
+        console.log(student.address);
+        console.log(student.age);
+        console.log(student.education);
+
+    </script>
+
+</body>
+</html>

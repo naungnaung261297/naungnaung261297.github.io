@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+    
+    <!-- <script src="custom.js"></script> -->
+
+</head>
+<body>
+    <h1>Variable</h1>
+
+    <script>
+        // global variable (ကြိုက်တဲ့ နေရာမှ ပြန်ခေါ်သုံး။ ထပ်ကြေညာနိုင်။ Modify လုပ်နိုင်)
+        var name = "Naung Naung";
+        var name = "Naung Naung Updated";
+        name = "Naung Naung Updated Again";
+        console.log(name);
+
+        // block scope variable (နှစ်ခါထပ်ပြီး ကြေညာလို့ မရ။ Modify သာ လုပ်နိုင်။)
+
+        let fatherName = "U Mg Mg";
+        fatherName = "U Mg Mg Updated";
+        console.log(fatherName);
+
+        // if statement
+
+        var num = 40
+        if(num){
+            let num1 = 20;
+            let result = num + num1;
+            console.log(result);
+        }
+        let num1 = 30;
+        console.log(num1);
+
+        // const variable (ထပ်ကြေညာလို့ မရ။ Modify လည်း မလုပ်နိုင်။)
+
+        const motherName = "Daw Aye";
+        console.log(motherName);
+
+    </script>
+</body>
+</html

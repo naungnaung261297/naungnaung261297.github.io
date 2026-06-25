@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>String</h1>
+
+    <script>
+        // string concatenation (ဒေတာ ၂ ခု ပေါင်းချင်ရင် + sign နဲ့ ပေါင်းလို့ ရပါတယ်။) `${}` ရေးရမယ်။ 
+
+        let firstName = "Developer";
+        let lastName = "Naung Naung"
+
+        // let fullName = firstName + " " + lastName;
+        // let fullName = `${firstName} ${lastName}. I am 29 years old.`;
+
+        // console.log(fullName);
+
+        // let fullName = "<h1>" + firstName + " " + lastName + "</h1>";
+
+        // let fullName = "<h1>" + "My name is " + firstName + " " + lastName + "</h1>";
+
+        let fullName = `<h1> My name is ${firstName} ${lastName}</h1>`;
+        let fullName2 = firstName.concat(' ',lastName);
+
+        document.write(fullName);
+
+        document.write(fullName2);
+
+        document.write(fullName.toUpperCase());
+
+        document.write(fullName.toLocaleLowerCase());
+
+        let name = "My name is Naung Naung. I am 29 years old.";
+        document.write(name.substr(11,11));
+        document.write("<br>" + "<br>");
+
+        // .substr ကြိုက်တဲ့ နေရာမှ ဖြတ်ယူခြင်း substring
+
+        let job = "         Developer         Naung Naung          ";
+        document.write(job.trim());
+
+        // .trim မလိုအပ်တဲ့ spacing များကို ဖျက်ခြင်း
+
+        let ser = "Developer Naung Naung";
+        console.log(ser.search("Naung"));
+        console.log(ser.indexOf("Naung Naung"));
+
+        // .ser ရှာချင်တဲ့ စကားလုံးကို ရှာဖွေခြင်း search
+
+        let rep = "Developer Naung Naung";
+        console.log(rep.replace("Developer", "Student"));
+
+        let num = '1,222,344,555,666,777,888,999';
+        console.log(num.replace(/\,/g,''));
+
+        // .replace စကားလုံး အစားထိုးထည့်ခြင်း
+
+        document.write("<br>" + "<br>");
+
+        document.write("I'm Naung Naung.");
+
+        document.write("<br>" + "<br>");
+
+        document.write('I\'m Naung Naung.');
+
+        document.write("<br>" + "<br>");
+
+        document.write("I'm Naung Naung. 5'7\"");
+
+        document.write("<br>" + "<br>");
+
+        document.write(`I'm Naung Naung. 5'7"`);
+
+
+
+        // double code ထဲမှာ single code ရေးလို့ ရ။ double code ထပ်ရေးလို့ မရပါ။ 
+
+        // script tag ထဲမှာ html tag တွေ ရေးလို့ မရပါဘူး။ Java Script နဲ့ html tag တွဲလို့သာ ရေးလို့ ရပါတယ်။ 
+        
+        // double, single code ထဲမှာ double, single code ရေးချင်ရင် (back salaph \ )သုံးပြီး ရေးရပါမယ်။ 
+
+        // backtit sign (`) ထဲမှာတော့ double , single code ကြိုက်သလို ရေးလို့ ရပါတယ်။ 
+
+
+
+
+    </script>
+    
+</body>
+</html>

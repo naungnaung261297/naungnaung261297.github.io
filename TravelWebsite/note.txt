@@ -1,0 +1,35 @@
+Place
+Price
+Package
+Member
+User Information
+Date
+Transformation
+Hotel
+
+
+color (Base on logo)
+Font Design (user smooth Font)//
+sturacture
+icon//
+image//
+
+Header
+1. Navigation (unique)
+
+
+
+Body
+1. banner / hero
+2. 
+
+
+Footer (unique)
+
+Home
+Package
+About
+
+
+
+
