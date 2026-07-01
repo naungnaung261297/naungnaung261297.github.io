@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework</title>
+</head>
+
+<body>
+
+
+    <form action="" name="myForm">
+
+        <label for="name">Name</label> <br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="price">Price</label> <br>
+        <input type="number" id="price" name="price"><br><br>
+
+        <label for="qty">Qty</label> <br>
+        <input type="number" id="qty" name="qty"><br><br>
+
+        <label for="total">Total</label> <br>
+        <input type="number" id="total" name="total"><br><br>
+
+        <button type="button" onclick="showData()">Register</button>
+
+    </form>
+
+    <h1>List</h1>
+    <table cellspacing="0" cellpadding="20" border="1">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+
+        <tbody id="myData">
+
+        </tbody>
+    </table>
+
+    <script>
+        let myList = [];
+
+        function showData() {
+            let name = document.myForm.name.value;
+            let price = document.myForm.price.value;
+            let qty = document.myForm.qty.value;
+            let total = document.myForm.total.value;
+
+    
+            let list = {
+                Name: name,
+                Price: price,
+                Qty: qty,
+                Total: total
+            }
+
+            myList.push(list);
+            
+                let html = '';
+                for (let i = 0; i < myList.length; i++) {
+                    html += `<tr>
+                                <td>${i + 1}</td>
+                                <td>${myList[i].Name}</td>
+                                <td>${myList[i].Price}</td>
+                                <td>${myList[i].Qty}</td>
+                                <td>${myList[i].Total}</td>
+                            </tr>`;
+                }
+                    document.getElementById('myData').innerHTML = html;
+
+            }
+
+
+    </script>
+
+</body>
+
+</html>
