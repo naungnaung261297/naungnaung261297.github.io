@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .welcome {
+            max-width: 250px;
+            color: white;
+            background-color: blue;
+            padding: 50px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="my-class">Welcome to my class</p>
+    <input type="text" name="name" id="name">
+
+    <script>
+        $(document).ready(function(){
+            // ၁။ Mouse တင်ရင် class ထည့်မယ်
+            $('#my-class').mouseover(function(){
+                $(this).addClass('welcome');
+            });
+
+            // ၂။ Mouse ပြန်ခွာရင် class ပြန်ဖျက်မယ် (mouseout သို့ ပြောင်းလဲထားသည်)
+            $('#my-class').mouseout(function () {
+                $(this).removeClass('welcome');
+            });
+
+            // ၃။ Input ကို နှိပ်လိုက်ရင် နောက်ခံ အနီရောင်ပြောင်းမယ်
+            $('#name').focus(function () {
+                $(this).css({ 'background-color': 'red' });
+            });
+
+            // ၄။ Input ထဲက စာရိုက်ပြီး ပြန်ထွက်ရင် တန်ဖိုးကို console ထုတ်မယ်
+            $('#name').change(function () {
+                let name = $(this).val();
+                console.log(name);
+            });
+
+            // ၅။ Input ထဲကနေ Focus ပြန်ထွက်ရင် နောက်ခံ အဖြူရောင် ပြန်ပြောင်းမယ် (ထပ်တိုးဖြည့်စွက်ချက်)
+            $('#name').blur(function () {
+                $(this).css({ 'background-color': 'green' });
+            });
+        }); // ⚠️ ဤနေရာတွင် ကွင်းပိတ်များ မှန်ကန်စွာ ပိတ်ထားသည်
+    </script>
+</body>
+
+</html>

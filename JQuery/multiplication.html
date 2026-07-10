@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication</title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    Number : <input type="number" name="number" id="number">
+    <button id="multiply">Multiply</button>
+
+    <table>
+        <tbody id="my-tbody">
+        </tbody>
+    </table>
+
+    <script>
+        // HTML Element များအားလုံး Load ဖြစ်ပြီးမှ jQuery အလုပ်လုပ်စေရန် ready() ကို သုံးရသည်
+        $(document).ready(function () {
+
+            // Multiply ခလုတ်ကို ကလစ်နှိပ်လိုက်သည့်အခါ အလုပ်လုပ်မည့် နေရာ
+            $('#multiply').click(function () {
+
+                // ၁။ Input box ထဲက ရိုက်ထားသော တန်ဖိုး (String အနေဖြင့် ရလာသည်) ကို လှမ်းယူခြင်း
+                let num = $('#number').val();
+
+                // ၂။ ရလာသော String တန်ဖိုးကို တွက်ချက်၍ရအောင် ကိန်းဂဏန်း (Number Type) သို့ ပြောင်းလဲခြင်း
+                let number = Number(num);
+
+                // ၃။ တန်ဖိုးနှင့် အမျိုးအစား မှန်/မမှန် စစ်ဆေးရန် Console တွင် ထုတ်ပြခြင်း
+                console.log(number);
+                console.log(typeof (number));
+
+                // ၄။ HTML row များကို စုဆောင်းသိမ်းဆည်းရန်အတွက် (စာသားအလွတ်) Variable တစ်ခု တည်ဆောက်ခြင်း
+                let data = '';
+
+                // ၅။ ၁ မှ ၁၂ အထိ ပတ်မည့် Loop ပတ်ခြင်း (အမြှောက်ဇယား ၁၂ ကန့်အတွက်)
+                for (let i = 1; i <= 12; i++) {
+
+                    // ရိုက်ထည့်လိုက်သော ဂဏန်းနှင့် ပတ်နေသော i (၁ မှ ၁၂) ကို မြှောက်ပြီး ရလဒ်ရှာခြင်း
+                    let result = number * i;
+                    console.log(result); // ရလဒ်ကို ကွန်ဆိုးတွင် စမ်းသပ်ထုတ်ပြခြင်း
+
+                    // HTML Table Row (<tr>) ပုံစံဖြင့် data variable ထဲသို့ တစ်ကြောင်းချင်းစီ ပေါင်းထည့်ခြင်း (Append လုပ်ခြင်း)
+                    data += `<tr>
+                                <td>${number} x ${i}</td>
+                                <td> = </td>
+                                <td> ${result} </td>
+                            </tr>`;
+                }
+
+                // ၆။ Loop ပတ်ပြီး ထွက်လာသော HTML data အားလုံးကို Table ရဲ့ <tbody> ထဲသို့ အစားထိုးထည့်သွင်းပြသခြင်း
+                $('#my-tbody').html(data);
+            })
+        })
+    </script>
+</body>
+
+</html>

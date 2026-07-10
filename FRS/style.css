@@ -1,0 +1,283 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pyidaungsu', Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+    padding: 10px;
+}
+
+/* Header */
+.app-header {
+    background-color: #3174c4;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.logout-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* .left-panel {
+    flex: 1;
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+} */
+
+.right-panel {
+    flex: 2;
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* General Buttons */
+.btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+.btn-blue { background-color: #3174c4; color: white; }
+.btn-gray { background-color: #a6b1bb; color: white; }
+.btn-light-gray { background-color: #e2e6ea; color: #333; border: 1px solid #ccc; }
+
+/* Tabs */
+.tab-container {
+    display: flex;
+    border-bottom: 2px solid #3174c4;
+    margin-bottom: 15px;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tab.active {
+    color: #3174c4;
+    border-bottom: 3px solid #3174c4;
+}
+
+.tab-download {
+    margin-left: auto;
+    color: #555;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: center;
+}
+
+/* Form Grid Styling */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 5px;
+}
+
+.form-group {
+    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #666;
+}
+
+.required { color: red; }
+
+input[type="text"], select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* Column Overrides */
+.col-2 { grid-column: span 6; }
+.col-3 { grid-column: span 2; }
+.col-full { grid-column: span 12; }
+
+/* Gender & DOB Custom CSS */
+.gender-group {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 5px;
+}
+.gender-btn {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+}
+.gender-btn.active { background: #3174c4; color: white; border-color: #3174c4; }
+
+.dob-group {
+    grid-column: span 3;
+    flex-direction: row;
+    gap: 5px;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+.form-actions .btn {
+    max-width: 150px;
+}
+
+/* Bottom Table */
+.table-section {
+    margin-top: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.data-table th, .data-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.data-table th {
+    background-color: #f8f9fa;
+    color: #555;
+}
+
+.no-data {
+    text-align: center;
+    color: #999;
+    padding: 30px !important;
+}
+
+/* Cell အကွက်တစ်ခုလုံးကို Input Box ပုံစံ ဖန်တီးခြင်း */
+.inline-cell-select {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 12px;           /* ဘေးဘယ်ညာ Border အကွာအဝေး */
+    border: 1px solid #cbd5e1; /* Input Border အရောင် */
+    border-radius: 6px;        /* ထောင့်ကွေး */
+    background-color: #fff;
+    height: 40px;              /* တခြား input အကွက်များနှင့် အမြင့်တူစေရန် */
+}
+
+/* "နိုင်ငံသား" စာသားအတွက် CSS */
+.inline-cell-select label {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    white-space: nowrap;       /* စာလုံးကို အောက်ကြောင်းမဆင်းစေရန် */
+    margin-right: 8px;         /* စာသားနှင့် select box ကြား အကွာအဝေး */
+}
+
+/* အထဲက Select Box ရဲ့ ကိုယ်ပိုင် Border များကို ဖျောက်ခြင်း */
+.inline-cell-select select {
+    flex: 1;
+    border: none !important;   /* အနားသတ်မျဉ်းများ ဖျောက်ရန် */
+    outline: none !important;
+    padding: 0 !important;     /* မူလ padding များကို ဖျက်ရန် */
+    background-color: transparent;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+/* NRC မသိပါ Checkbox ကို ညာဘက်ကပ်ရန် */
+.unknown-nrc-label {
+    float: flex;
+    font-size: 0.8rem;
+    color: #e74c3c; /* သတိပြုမိလွယ်အောင် အရောင်ခပ်ဖျော့ဖျော့ ပေးထားခြင်း */
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.unknown-nrc-label input {
+    margin-right: 4px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: bisque;
+    height: 40px;
+    border-radius: 15px;
+}
+
+.input-row {
+    display: flex !important;
+    flex-direction: row !important; /* အောက်ကို လုံးဝမဆင်းစေရန် အတင်းသတ်မှတ်ခြင်း */
+    gap: 8px;
+    width: 100%;
+}
+
+/* အကွက်နှစ်ခုလုံး အောက်ကို လျှံမကျအောင် width ကို ရာခိုင်နှုန်းဖြင့် ထိန်းခြင်း */
+.input-row input[type="text"] {
+    width: 55% !important; 
+    height: 40px;
+}
+
+.unknown-nrc-cell {
+    width: 45% !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    font-size: 0.8rem;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* CSS Grid စနစ်အရ ၆ ကွက်မြှောက်တွင် ၃ ကွက်စာစီ (span 2) ယူခြင်းဖြစ်၍ တစ်တန်းလျှင် ၃ ကွက် အတိအကျ ပေါ်မည်ဖြစ်သည် */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+}
+
+.form-group.col-3 {
+    grid-column: span 2; /* ၆ ကွက်တွင် ၂ ကွက်စာစီယူသဖြင့် ၂+၂+၂ = ၆ ကွက် (တစ်တန်းတည်း) ဖြစ်သွားပါမည် */
+}

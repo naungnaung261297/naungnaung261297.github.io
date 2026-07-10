@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        #panel {
+            max-width: 150px;
+            padding: 50px 0;
+            background-color: red;
+            color: white;
+            text-align: center;
+            /* ⚠️ အရေးကြီးချက်: .animate() ဖြင့် ရွေ့လျားချင်ပါက position ကို relative, absolute သို့မဟုတ် fixed ပေးထားရမည် */
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="panel">Animation</p>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        // HTML elements များ အားလုံး အဆင်သင့်ဖြစ်ချိန်တွင် အလုပ်လုပ်မည်
+        $(document).ready(function () {
+
+            // Start ခလုတ်ကို နှိပ်လိုက်သည့်အခါ
+            $('#start').click(function () {
+
+                /* 💡 jQuery Animation Queue သဘောတရား-
+                  animate() တွေကို တစ်ကြောင်းချင်းစီ ဆက်ရေးထားပါက 
+                  တစ်ခုပြီးမှ တစ်ခု (အစီအစဉ်အတိုင်း) စီတန်းပြီး အလုပ်လုပ်သွားမည် ဖြစ်သည်။
+                */
+
+                // ၁။ Panel ကို ညာဘက်သို့ 350px ရွေ့မည် (ကြာချိန် ၃ စက္ကန့်)
+                $('#panel').animate({ left: '350px' }, 3000);
+
+                // ၂။ ညာဘက်ရောက်သွားပြီးမှ အောက်သို့ 350px ဆင်းမည် (ကြာချိန် ၃ စက္ကန့်)
+                $('#panel').animate({ top: '350px' }, 3000);
+
+                // ၃။ ဘယ်ဘက် မူလနေရာ (0px) သို့ ပြန်ရွေ့မည် (ကြာချိန် ၃ စက္ကန့်)
+                // ⚠️ မှတ်ချက် - '' (စာသားအလွတ်) ထည့်ခြင်းသည် မူလတည်နေရာသို့ ပြန်ပို့ခြင်းဖြစ်ပြီး px ထည့်ရန်မလိုပါ။
+                $('#panel').animate({ left: '' }, 3000);
+
+                // ၄။ အပေါ်ဘက် မူလနေရာ (0px) သို့ ပြန်တက်မည် (ကြာချိန် ၃ စက္ကန့်)
+                $('#panel').animate({ top: '' }, 3000);
+            })
+
+            // Stop ခလုတ်ကို နှိပ်လိုက်သည့်အခါ
+            $('#stop').click(function () {
+
+                /* .stop() သည် လက်ရှိ အလုပ်လုပ်နေသော Animation (လက်ရှိသွားနေသည့်လမ်းကြောင်း) ကို 
+                  ချက်ချင်း ရပ်တန့်လိုက်မည် ဖြစ်သည်။
+                */
+                $('#panel').stop();
+            })
+        })
+    </script>
+</body>
+
+</html>

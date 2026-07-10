@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT Shop</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">IT Shop</div>
+
+        <div class="nav-links">
+            <a href="#" class="nav-item">Home</a>
+            <div class="cart-container">
+                <i class="fa-solid fa-cart-shopping" style="color: white"></i>
+                <span class="cart-badge" id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="product-container">
+        <div class="product-card">
+            <img src="laptop.webp" alt="Laptop 1" />
+            <h3>Laptop 1</h3>
+            <p class="price">Price : 2300000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'Laptop 1', 2300000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="laptop1.webp" alt="Laptop 2" />
+            <h3>Laptop 2</h3>
+            <p class="price">Price : 2000000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'Laptop 2', 2000000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="laptop2.webp" alt="Laptop 3" />
+            <h3>Laptop 3</h3>
+            <p class="price">Price : 1900000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'Laptop 3', 1900000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="laptop3.webp" alt="Laptop 4" />
+            <h3>Laptop 4</h3>
+            <p class="price">Price : 1850000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'Laptop 4', 1850000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="ip14pro4.webp" alt="iPhone 1" />
+            <h3>iPhone 1</h3>
+            <p class="price">Price : 3400000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'iPhone 1', 3400000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="ip14pro.webp" alt="iPhone 2" />
+            <h3>iPhone 2</h3>
+            <p class="price">Price : 3200000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'iPhone 2', 3200000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="ip14pro1.webp" alt="iPhone 3" />
+            <h3>iPhone 3</h3>
+            <p class="price">Price : 3100000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'iPhone 3', 3100000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="ip14pro2.webp" alt="iPhone 4" />
+            <h3>iPhone 4</h3>
+            <p class="price">Price : 3000000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'iPhone 4', 3000000)"> Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        // ၁။ ခြင်းတောင်းကို Array (စာရင်း) တစ်ခုအနေနဲ့ အလွတ်စတင် ဆောက်ထားမယ်
+        let cart = [];
+
+        // ၂။ Add to Cart ခလုတ်ကို နှိပ်ရင် အလုပ်လုပ်မယ့် Function
+        function addToCart(buttonElement, productName, price) {
+            // ပစ္စည်းအသစ်ကို ပစ္စည်းစာရင်းထဲ ထည့်လိုက်တယ်
+            cart.push({ name: productName, price: price });
+
+            // ၃။ ညာဘက်အပေါ်က ခြင်းတောင်း icon မှာ အရေအတွက် သွားတိုးပေးတယ်
+            updateCartIcon();
+
+            // ၂။ ခလုတ်ရဲ့ စာသားကို "Added ✓" လို့ ပြောင်းမယ်
+            buttonElement.innerText = "Added ✓";
+
+            // ၃။ CSS Class အသစ်ကို လှမ်းထည့်ပြီး အရောင်ပြောင်းလိုက်မယ်
+            buttonElement.classList.add("added-style");
+
+            // ၄။ (Option) ထပ်နှိပ်လို့ မရအောင် ခလုတ်ကို ပိတ်လိုက်မယ်
+            buttonElement.disabled = true;
+        }
+
+        function updateCartIcon() {
+            // ခြင်းတောင်းထဲမှာ ပစ္စည်းဘယ်နှစ်ခုရှိလဲ ရေတွက်ပြီး UI မှာ သွားပြတာ
+            document.getElementById("cart-count").innerText = cart.length;
+        }
+    </script>
+</body>
+
+</html>

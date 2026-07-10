@@ -1,0 +1,176 @@
+/* 기본 Google Font သုံးချင်ရင် သုံးနိုင်ပါတယ် */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar တစ်ခုလုံးအတွက် Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* ဘယ်နဲ့ ညာ အစွန်ဆုံးစီ တွန်းထုတ်ရန် */
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 50px; /* အပေါ်အောက် ၁၅px၊ ဘယ်ညာ ၅၀px ပတ်လည်ခြားရန် */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* အောက်ဘက် အရိပ်အနည်းငယ်ထည့်ရန် */
+}
+
+/* ဘယ်ဘက်က Logo/Title အတွက် */
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* ညာဘက်က Home နဲ့ Cart စုစည်းထားတဲ့ နေရာ */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Home နဲ့ Cart ကြား အကွာအဝေး */
+}
+
+/* Home Link အတွက် */
+.nav-item {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Cart Button နေရာချထားမှုအတွက် */
+.cart-container {
+    position: relative; /* Badge ကို ညာဘက်အပေါ်ထောင့် ကပ်ရန် လိုအပ်သည် */
+    background-color: #2b6cb0; /* အပြာရောင် Background */
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px; /* ထောင့်ဝိုင်းရန် */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.cart-container:hover{
+    background-color: #d81d1d;
+}
+
+.cart-container i{
+    font-size: 16px;
+}
+
+/* အနီရောင် '0' (Notification Badge) အတွက် */
+.cart-badge {
+    position: absolute;
+    top: -10px;      /* အပေါ်သို့ ထွက်စေရန် */
+    right: -10px;    /* ညာဘက်သို့ ထွက်စေရန် */
+    background-color: #e53e3e; /* အနီရောင် */
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* အဝိုင်းပုံစံ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white; /* ပတ်လည် အဖြူရောင်ဘောင် */
+}
+
+/* Pop-up နောက်ခံ အမှောင် */
+.modal {
+  display: none; /* အစပိုင်းမှာ ဖျောက်ထားမယ် */
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5); /* မှောင်မှောင်လေး */
+  z-index: 1000; /* အပေါ်ဆုံးက ထပ်နေအောင် */
+}
+
+/* Pop-up အဖြူရောင် အကွက် */
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  width: 50%;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* ပိတ်မယ့် X ခလုတ် */
+.close-btn {
+  position: absolute;
+  right: 15px; top: 10px;
+  font-size: 28px; cursor: pointer;
+}
+
+.search-container input {
+    padding: 8px 15px;
+    width: 1000px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-container input:focus {
+    border-color: #007bff; /* အကွက်ထဲ ကလစ်နှိပ်လိုက်ရင် အပြာရောင်လိုင်းလေးဖြစ်သွားမယ် */
+}
+
+/* ၁။ အပြင်ဘက် Container ကို အကွက်ချခြင်း */
+.product-container {
+    display: grid; /* Grid စနစ်ကို သုံးမယ်လို့ ကြေညာတာပါ */
+    
+    /* တစ်တန်းကို အရွယ်အစားတူ ၄ ကွက် (4 Columns) အလိုအလျောက် ပိုင်းခိုင်းလိုက်တာပါ */
+    grid-template-columns: repeat(4, 1fr); 
+    
+    /* ကတ်တစ်ခုနဲ့တစ်ခု ကြားထဲမှာ အကွာအဝေး (Gap) ၂၀px စီ ခြားပေးတာပါ */
+    gap: 20px; 
+    
+    padding: 40px;
+    background-color: #f8f9fa;
+}
+
+/* ၂။ အထဲက Card တစ်ခုချင်းစီကို ပုံစံသွင်းခြင်း */
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0; /* ပတ်ပတ်လည် ဘောင်လိုင်းနုနုလေး */
+    border-radius: 8px;        /* ထောင့်လေးတွေကို အနည်းငယ် ဝိုင်းပေးတာ */
+    padding: 20px;
+    text-align: left;         /* စာသားတွေကို ဘယ်ဘက်ကပ်တာ */
+    
+    display: flex;
+    flex-direction: column;   /* အထဲက ပုံ၊ စာ၊ Button တွေကို အပေါ်အောက် တန်းစီစေတာ */
+    gap: 12px;                /* ကတ်အထဲက စာသားတွေကြား အကွာအဝေး */
+}
+
+/* ၃။ Card ထဲက ပုံတွေကို အချိုးကျဖြစ်စေခြင်း */
+.product-card img {
+    width: 100%;             /* ကတ်ရဲ့ အကျယ်အတိုင်း ပုံကို အပြည့်ယူစေတာ */
+    height: auto;
+    object-fit: contain;     /* ပုံတွေ ပျက်မသွားဘဲ အချိုးကျ အကွက်ထဲ ဝင်ဆံ့စေတာ */
+}
+
+/* Add to Cart အပြာရောင် ခလုတ်လေး */
+.add-to-cart-btn {
+  background-color: #1a73e8; /* အပြာရောင် */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 150px;
+}
+
+/* ခလုတ်ပေါ် Mouse တင်ရင် အရောင်နည်းနည်းရင့်သွားစေရန် */
+.add-to-cart-btn:hover {
+  background-color: #15b01d;
+}
+
+/* နှိပ်ပြီးရင် ပြောင်းလဲသွားမယ့် အရောင်အသစ် Class (ဥပမာ - အစိမ်းရောင်) */
+.added-style {
+  background-color: #28a745 !important; /* အစိမ်းရောင် ပြောင်းမယ် */
+  cursor: not-allowed; /* ထပ်နှိပ်လို့မရတော့တဲ့ ပုံစံ Mouse Pointer ပြောင်းမယ် */
+}

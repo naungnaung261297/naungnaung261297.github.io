@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <div id="addStudent">
+        <h3>Add New Student</h3>
+        Name : <input type="text" name="name" id="name"><br><br>
+        Email: <input type="email" name="email" id="email"><br><br>
+        Phone: <input type="number" name="phone" id="phone"><br><br>
+        Year: <select name="year" id="year">
+            <option value="">Choose Year</option>
+            <option value="First Year">First Year</option>
+            <option value="Second Year">Second Year</option>
+            <option value="Third Year">Third Year</option>
+        </select><br><br>
+        <button id="add">Add Student</button>
+    </div>
+
+    <h3>Students List</h3>
+    <table border="1" cellspacing="0" cellpadding="20">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Year</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+
+    <script>
+        // HTML Document တစ်ခုလုံး အလုပ်လုပ်ဖို့ အဆင်သင့်ဖြစ်ချိန်မှာ စတင်အလုပ်လုပ်ခိုင်းခြင်း (input ထဲက data တစ်ခုချင်းစီကို လက်ခံ)
+        $(document).ready(function () {
+
+            // "Add Student" Button ကို နှိပ်လိုက်တဲ့အခါ အောက်က လုပ်ငန်းစဉ်တွေ လုပ်မယ်
+            $('#add').click(function () {
+
+                // 1. Input Box တွေထဲက ရိုက်ထည့်လိုက်တဲ့ တန်ဖိုး (Value) တွေကို လှမ်းယူပြီး Variable တွေထဲ သိမ်းတယ် (လက်ခံထားတဲ့ data ေတွကို obj တည် ေဆာက်)
+                let name = $('#name').val();
+                let email = $('#email').val();
+                let phone = $('#phone').val();
+                let year = $('#year').val(); // **ပြင်ဆင်ချက်- တန်ဖိုးအမှန်ရဖို့ .val() လိုအပ်ပါတယ်**
+                console.log(name,email,phone,year);
+
+                // 2. ယူလိုက်တဲ့ ကျောင်းသားဒေတာတွေကို Object (အစုအဝေး) ပုံစံ ဖွဲ့စည်းလိုက်တယ် (variable အလွတ်  ေကြညာ)
+                let students = {
+                    stu_name: name,
+                    stu_email: email,
+                    stu_phone: phone,
+                    stu_year: year,
+                }
+                console.log(students);
+
+                // ကျောင်းသားစာရင်း အားလုံးကို သိမ်းမယ့် Array (စာရင်းချုပ်) တစ်ခု ကြေညာတယ် (LocalStorage ထဲက data ကို လက်ခံရယူ)
+                let studentArray;
+
+                // 3. LocalStorage ထဲမှာ 'students_key' ဆိုတဲ့ နာမည်နဲ့ ဒေတာအဟောင်း ရှိမရှိ လှမ်းစစ်တယ်
+                let studentData = localStorage.getItem('students_key');
+
+                if (studentData == null) {
+                    // ဒေတာအဟောင်း လုံးဝမရှိသေးရင် Array အလွတ်တစ်ခု သတ်မှတ်တယ်  (if သည် localStorage က null ဖြစ် ေနတဲ့အချိန် / တစ်နည်းအားဖြင့် ဘာ data မှ မရှိချိန်မှာ လုပ်)
+                    studentArray = [];
+                } else {
+                    // ဒေတာအဟောင်းရှိနေရင် String (စာသား) ကနေ ပုံမှန် JavaScript Array/Object ဖြစ်အောင် ပြန်ပြောင်းတယ် (else က localStorage မှာ data ရှိမှ လုပ်မယ်။ ရှိတဲ့ data က string ဖြစ်ေနလို့ JSON Array ေပြာင်း)
+                    studentArray = JSON.parse(studentData);
+                }
+
+                // 4. အခုရလာတဲ့ ကျောင်းသားအသစ်ဒေတာ (Object) ကို စာရင်းချုပ် Array ထဲသို့ ပေါင်းထည့် (Push) လိုက်တယ်
+                // (localStorage ထဲမှာ ဘာမှ မရှိေသးရင် array index 0 အ ေနနဲ့ variable studentArray ထဲကို သိမ်းသွား
+                // localStorage ထဲမှာ data ရှိခဲ့မယ်ဆိုရင် variable studentArray ထဲကို next index (eg.1) အ ေနနဲ့ သိမ်းသွားမှာ ဖြစ်တယ်)
+                studentArray.push(students);
+
+                // 5. LocalStorage ထဲမှာ စာသား (String) ပုံစံပဲ သိမ်းလို့ရလို့ Array ကို JSON String ပြောင်းလဲလိုက်တယ်
+                let studentString = JSON.stringify(studentArray);
+
+                // 6. နောက်ဆုံးမှာ ပြောင်းလဲလိုက်တဲ့ String ကို 'students_key' ဆိုတဲ့ နာမည်နဲ့ LocalStorage ထဲမှာ အပြီးသတ် သိမ်းဆည်းလိုက်ပါတယ်
+                localStorage.setItem('students_key', studentString);
+            })
+        })
+    </script>
+</body>
+
+</html>

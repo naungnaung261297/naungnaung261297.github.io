@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT Shop</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCart()">&times;</span>
+            <h2>🛒 ဝယ်ရန် စာရင်းတွင် ထည့်ထားသော ပစ္စည်းများ</h2>
+
+            <div id="cart-list-items"></div>
+            <hr>
+            <div id="total-amount-box"
+                style="display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; margin-top: 15px; color: #d32f2f;">
+                <span>စုစုပေါင်း ကျသင့်ငွေ:</span>
+                <span id="total-price-text">0 MMK</span>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="logo">IT Shop</div>
+
+        <div class="search-container">
+            <input type="search" id="search-input" placeholder="ပစ္စည်းအမည် ရိုက်ရှာပါ..." onkeyup="searchProducts()" />
+        </div>
+
+        <div class="nav-links">
+            <a href="#" class="nav-item">Home</a>
+            <div class="cart-container" onclick="showCartItems()">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-badge" id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="product-container">
+        <div class="product-card">
+            <img src="laptop.webp" alt="Laptop 1" />
+            <h3>Laptop 1</h3>
+            <p class="price">Price : 2300000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'Laptop 1', 2300000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="laptop1.webp" alt="Laptop 2" />
+            <h3>Laptop 2</h3>
+            <p class="price">Price : 2000000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'Laptop 2', 2000000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="laptop2.webp" alt="Laptop 3" />
+            <h3>Laptop 3</h3>
+            <p class="price">Price : 1900000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'Laptop 3', 1900000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="laptop3.webp" alt="Laptop 4" />
+            <h3>Laptop 4</h3>
+            <p class="price">Price : 1850000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'Laptop 4', 1850000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="ip14pro4.webp" alt="iPhone 1" />
+            <h3>iPhone 1</h3>
+            <p class="price">Price : 3400000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'iPhone 1', 3400000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="ip14pro.webp" alt="iPhone 2" />
+            <h3>iPhone 2</h3>
+            <p class="price">Price : 3200000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'iPhone 2', 3200000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="ip14pro1.webp" alt="iPhone 3" />
+            <h3>iPhone 3</h3>
+            <p class="price">Price : 3100000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'iPhone 3', 3100000)"> Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="ip14pro2.webp" alt="iPhone 4" />
+            <h3>iPhone 4</h3>
+            <p class="price">Price : 3000000 MMK</p>
+            <button class="add-to-cart-btn" onclick="addToCart(this, 'iPhone 4', 3000000)"> Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        // function showCartItems() {
+        //     if (cart.length === 0) {
+        //         alert("ဈေးခြင်းတောင်းထဲမှာ ဘာမှမရှိသေးပါဘူး။");
+        //         return;
+        //     }
+
+        //     let message = "🛒 သင့်ရဲ့ ဈေးခြင်းတောင်းထဲရှိ ပစ္စည်းများ -\n\n";
+
+        //     // ခြင်းတောင်းထဲက ပစ္စည်းတွေကို တစ်ခုချင်းစီ လိုက်ဖတ်ပြီး စာသားထဲ ပေါင်းထည့်မယ်
+        //     cart.forEach((item, index) => {
+        //         message += `${index + 1}. ${item.name} - ${item.price} MMK (အရေအတွက်: ${item.quantity} ခု)\n`;
+        //     });
+
+        //     // စုစည်းထားတဲ့ စာသားကို Pop-up အနေနဲ့ ပြလိုက်မယ်
+        //     alert(message);
+        // }
+
+        let cart = []; // ခြင်းတောင်းအလွတ်
+
+        function showCartItems() {
+
+            // Modal ကို အရင်ဆုံး ပွင့်လာအောင် လုပ်မယ်
+            document.getElementById("cartModal").style.display = "block";
+
+            let cartListItems = document.getElementById("cart-list-items");
+            let totalPriceText = document.getElementById("total-price-text");
+
+            cartListItems.innerHTML = ""; // စာရင်းဟောင်းတွေကို အရင် ရှင်းထုတ်မယ်
+
+            // ၁။ အစပိုင်းမှာ စုစုပေါင်းငွေကို 0 လို့ သတ်မှတ်ထားမယ်
+            let totalAmount = 0;
+
+            if (cart.length === 0) {
+                cartListItems.innerHTML = "<p style='text-align:center; color:#777;'>ခြင်းတောင်းထဲမှာ ဘာမှမရှိသေးပါ။</p>";
+                totalPriceText.innerText = "0 MMK"; // ပစ္စည်းမရှိရင် 0 ပြမယ်
+                return;
+            }
+
+            // ၂။ ခြင်းတောင်းထဲက ပစ္စည်းတွေကို တစ်ခုချင်းစီ ပတ်ပြီး HTML ထဲ ထည့်မယ်
+            cart.forEach(item => {
+                // ပစ္စည်းတစ်ခုချင်းစီရဲ့ စုစုပေါင်းတန်ဖိုးကို totalAmount ထဲ လိုက်ပေါင်းထည့်တာပါ
+                totalAmount += (item.price * item.quantity);
+
+                cartListItems.innerHTML += `
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #eee; padding-bottom:5px;">
+                    <span><strong>${item.name}</strong> (x${item.quantity})</span>
+                    <span>${(item.price * item.quantity).toLocaleString()} MMK</span>
+                </div>
+            `;
+            });
+
+            // ၃။ ရလာတဲ့ totalAmount ကို ရှင်းလင်းအောင် ထည့်မယ် (, text format အတွက် toLocaleString သုံးပေးထားပါတယ်)
+            totalPriceText.innerText = totalAmount.toLocaleString() + " MMK";
+        }
+
+        // Pop-up ပြန်ပိတ်ဖို့ ဖန်ရှင်
+        function closeCart() {
+            document.getElementById("cartModal").style.display = "none";
+        }
+
+        function searchProducts() {
+            // ၁။ ရိုက်ထည့်လိုက်တဲ့ စာသားကို ယူမယ် (အကြီးအသေး မခွဲခြားရအောင် lowercase ပြောင်းမယ်)
+            let searchText = document.getElementById("search-input").value.toLowerCase();
+
+            // ၂။ HTML ထဲက Product Card အားလုံးကို လှမ်းဖမ်းမယ်
+            let productCards = document.querySelectorAll(".product-card");
+
+            // ၃။ ပစ္စည်းတစ်ခုချင်းစီကို ပတ်ပြီး စစ်ဆေးမယ်
+            productCards.forEach(card => {
+                // Card ထဲမှာရှိတဲ့ <h3> (အမည်) ကို ယူမယ်
+                let productName = card.querySelector("h3").innerText.toLowerCase();
+
+                // ရိုက်လိုက်တဲ့စာသားက ပစ္စည်းအမည်ထဲမှာ ပါဝင်နေသလား စစ်မယ်
+                if (productName.includes(searchText)) {
+                    card.style.display = "block"; // ကိုက်ညီရင် ပြမယ်
+                } else {
+                    card.style.display = "none";  // မကိုက်ညီရင် ဖျောက်ထားမယ်
+                }
+            });
+        }
+
+
+        function addToCart(buttonElement, productName, price) {
+
+            // ၁။ ခြင်းတောင်းထဲမှာ ဒီအမည်နဲ့ ပစ္စည်း ရှိနေပြီလားဆိုတာ လိုက်ရှာမယ်
+            let existingItem = cart.find(item => item.name === productName);
+
+            if (existingItem) {
+                // ၂။ ရှိပြီးသားဖြစ်နေရင် - အရေအတွက် (Quantity) ကိုပဲ ၁ တိုးပေးမယ်
+                existingItem.quantity += 1;
+                alert(`${productName} ရဲ့ အရေအတွက်ကို ${existingItem.quantity} ခုအဖြစ် တိုးလိုက်ပါပြီ။`);
+            } else {
+                // ၃။ မရှိသေးရင် - ပစ္စည်းအသစ်အနေနဲ့ ခြင်းတောင်းထဲ ထည့်မယ် (quantity: 1 ပါရမယ်)
+                cart.push({ name: productName, price: price, quantity: 1 });
+                alert(`${productName} ကို ခြင်းတောင်းထဲ ထည့်လိုက်ပါပြီ။`);
+            }
+
+            // ၄။ UI ပေါ်က ခြင်းတောင်း အိုင်ကွန် အရေအတွက်ကို အသစ်ပြန်တွက်မယ်
+            updateCartIcon();
+
+            function updateCartIcon() {
+                let totalItems = 0;
+
+                // ခြင်းတောင်းထဲက ပစ္စည်းတစ်ခုချင်းစီရဲ့ အရေအတွက် (Quantity) တွေကို လိုက်ပေါင်းတာပါ
+                cart.forEach(item => {
+                    totalItems += item.quantity;
+                });
+
+                // ဥပမာ - Laptop ၁ ခု နဲ့ iPhone ၂ ခုဆိုရင် totalItems က 3 ဖြစ်သွားမယ်
+                document.getElementById("cart-count").innerText = totalItems;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="app-header">
+        <div class="app-title">Face Recognition App</div>
+        <button class="logout-btn">➔ Logout</button>
+    </header>
+
+    <main class="main-container">
+
+        <section class="right-panel">
+            <div class="tab-container">
+                <div class="tab active">အရပ်သား</div>
+            </div>
+
+            <form class="form-grid">
+                <div class="form-group">
+                    <input type="text" placeholder="အမည်" class="required">
+                </div>
+
+                <div class="form-group gender-group">
+                    <button type="button" class="gender-btn active">ကျား</button>
+                    <button type="button" class="gender-btn">မ</button>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" placeholder="အဘအမည်" class="required">
+                </div>
+
+                <div class="form-group dob-group">
+                    <div><input type="text" placeholder="ရက်" class="required"></div>
+                    <div><input type="text" placeholder="လ" class="required"></div>
+                    <div><input type="text" placeholder="နှစ်" class="required"></div>
+                </div>
+
+                <form class="form-grid" id="searchForm">
+                    <div class="form-group col-3">
+                        <select>
+                            <option value="0">တိုင်း/ ပြည်နယ်</option>
+                            <option value="1">၁/</option>
+                            <option value="2">၂/</option>
+                            <option value="3">၃/</option>
+                            <option value="4">၄/</option>
+                            <option value="5">၅/</option>
+                            <option value="6">၆/</option>
+                            <option value="7">၇/</option>
+                            <option value="8">၈/</option>
+                            <option value="9">၉/</option>
+                            <option value="10">၁၀/</option>
+                            <option value="11">၁၁/</option>
+                            <option value="12">၁၂/</option>
+                            <option value="13">၁၃/</option>
+                            <option value="14">၁၄/</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-3">
+                        <select>
+                            <option value="0">မြို့နယ်</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group col-3">
+                        <div class="inline-cell-select">
+                            <label>နိုင်ငံသား</label>
+                            <select id="citizenSelect">
+                                <option value="နိုင်" selected>နိုင်</option>
+                                <option value="ဧည့်">ဧည့်</option>
+                                <option value="ပြု">ပြု</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-2">
+                        <div class="input-row">
+                            <input type="text" placeholder="၆ လုံးဂဏန်း *" id="nrcNumberInput">
+
+                            <div class="unknown-nrc-cell">
+                                <span>NRC မသိပါ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-3">
+    <input type="text" placeholder="ယာဉ်အမှတ် *">
+</div>
+
+<div class="form-group col-3">
+    <input type="text" placeholder="ယာဉ်အမျိုးအစား *">
+</div>
+
+<div class="form-group col-3">
+    <select id="usedSelect">
+        <option value="">ယာဉ်အသုံးပြုမှု *</option>
+        <option value="ကိုယ်ပိုင်">ကိုယ်ပိုင်</option>
+        <option value="ခရီးသည်တင်ယာဉ်">ခရီးသည်တင်ယာဉ်</option>
+        <option value="အငှားယာဉ်">အငှားယာဉ်</option>
+        <option value="ကုန်တင်ယာဉ်">ကုန်တင်ယာဉ်</option>
+        <option value="ဆိုင်ကယ်">ဆိုင်ကယ်</option>
+    </select>
+</div>
+
+                    <div class="form-actions col-full">
+                        <button type="button" class="btn btn-gray">Send</button>
+                    </div>
+                </form>
+        </section>
+
+    </main>
+
+    <section class="table-section">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>အမည်</th>
+                    <th>မှတ်ပုံတင်</th>
+                    <th>နေရပ်လိပ်စာ(မှ)</th>
+                    <th>နေရပ်လိပ်စာ(သို့)</th>
+                    <th>ယာဉ်အမှတ်</th>
+                    <th>ယာဉ်အမျိုးအစား</th>
+                    <th>ယာဉ်အသုံးပြုမှု</th>
+                    <th>မှတ်ချက်</th>
+                    <th style="width: 40px;">🗑️</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="9" class="no-data">ပြသရန် အချက်အလက်မရှိပါ။</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
